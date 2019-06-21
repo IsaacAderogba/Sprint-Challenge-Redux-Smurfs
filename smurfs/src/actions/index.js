@@ -45,6 +45,7 @@ export const postSmurf = (name, age, height) => dispatch => {
 
 // Select Smurf action creator
 export const selectSmurf = (id) => {
+  
   return {
     type: SELECT_SMURF,
     payload: `${id}`
