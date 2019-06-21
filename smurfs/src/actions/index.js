@@ -19,12 +19,12 @@ const endpoint ="http://localhost:3333/smurfs";
 export const getSmurfs = () => dispatch => {
   axios.get(endpoint)
     .then(res => {
-      console.log(res)
+      console.log(res.data)
     })
     .catch(err => {
       console.log(err)
     })
-    .finallly(() => {
+    .finally(() => {
       // cleanup
     })
 }

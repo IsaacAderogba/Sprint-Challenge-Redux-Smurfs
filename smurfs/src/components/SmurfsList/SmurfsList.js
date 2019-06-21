@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Smurf from "./Smurf";
 import { getSmurfs } from '../../actions/index';
 import { connect } from 'react-redux';
 
-const SmurfsList = () => {
+const SmurfsList = (props) => {
+  const { getSmurfs, smurfs } = props;
+
+  useEffect(() => {
+      getSmurfs();
+  }, [getSmurfs])
+
+
+  console.log(smurfs);
+  
   return (
     <div>
       <h2>Smurf List</h2>
@@ -15,7 +24,6 @@ const SmurfsList = () => {
 };
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
         smurfs: state.smurfsReducer.smurfs
     }
