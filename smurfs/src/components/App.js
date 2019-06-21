@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import SmurfsList from './SmurfsList/SmurfsList';
 import SmurfsForm from './SmurfsForm/SmurfsForm';
 import './App.css';
@@ -11,13 +12,17 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <StyledApp className="ui container">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <SmurfsList />
         <SmurfsForm />
-      </div>
+      </StyledApp>
     );
   }
 }
+
+const StyledApp = styled.div`
+  margin: 24px 0;
+`
 
 export default App;

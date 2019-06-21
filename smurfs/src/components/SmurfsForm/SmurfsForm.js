@@ -1,4 +1,5 @@
 import React from "react";
+import styled from 'styled-components';
 import { connect } from "react-redux";
 import { postSmurf, putSmurf } from "../../actions/index";
 
@@ -15,7 +16,7 @@ const SmurfsForm = props => {
     const height = heightRef.current.value;
 
     if (selectedSmurf) {
-      putSmurf(foundSmurf.id, name, age, height )
+      putSmurf(foundSmurf.id, name, age, height);
     } else {
       postSmurf(name, age, height);
     }
@@ -27,9 +28,9 @@ const SmurfsForm = props => {
   }
 
   return (
-    <form onSubmit={onSubmitForm}>
+    <StyledForm className="ui form" onSubmit={onSubmitForm}>
       <h3>{selectedSmurf ? "Update Smurf" : "Add Smurf"}</h3>
-      <div>
+      <div className="field">
         <label>Name</label>
         <input
           required
@@ -38,7 +39,7 @@ const SmurfsForm = props => {
           ref={nameRef}
         />
       </div>
-      <div>
+      <div className="field">
         <label>Age</label>
         <input
           required
@@ -47,7 +48,7 @@ const SmurfsForm = props => {
           ref={ageRef}
         />
       </div>
-      <div>
+      <div className="field">
         <label>Height</label>
         <input
           required
@@ -56,10 +57,16 @@ const SmurfsForm = props => {
           ref={heightRef}
         />
       </div>
-      <button>{selectedSmurf ? "Update Smurf" : "Add Smurf"}</button>
-    </form>
+      <button className="ui button primary">
+        {selectedSmurf ? "Update Smurf" : "Add Smurf"}
+      </button>
+    </StyledForm>
   );
 };
+
+const StyledForm = styled.form`
+    margin-top: 36px;
+`
 
 function mapStateToProps(state) {
   return {

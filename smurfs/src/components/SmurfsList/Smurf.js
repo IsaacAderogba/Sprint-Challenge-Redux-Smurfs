@@ -11,15 +11,18 @@ const Smurf = (props) => {
       <span>{smurf.name}</span>
       <span>{smurf.age}</span>
       <span>{smurf.height}</span>
-      <button onClick={() => selectSmurf(smurf.id)}>Select Smurf</button>
-      <button onClick={() => deleteSmurf(smurf.id)}>Delete Smurf</button>
+      <button className="ui button basic primary" onClick={() => selectSmurf(smurf.id)}>Select Smurf</button>
+      <button className="ui button basic negative" onClick={() => deleteSmurf(smurf.id)}>Delete Smurf</button>
     </StyledSmurf>
   );
 };
 
 const StyledSmurf = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid lightgrey;
 `
 
 

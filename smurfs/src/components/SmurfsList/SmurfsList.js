@@ -15,7 +15,7 @@ const SmurfsList = props => {
   return (
     <div>
       <h2>Smurf List</h2>
-      {isFetching && <div>Loading...</div>}
+      {isFetching && <div className="ui active centered inline loader"></div>}
       {errorMessage && <div>{errorMessage}</div>}
       {smurfs &&
         smurfs.map(smurf => {
