@@ -43,6 +43,14 @@ export const postSmurf = (name, age, height) => dispatch => {
     })
 }
 
+// Select Smurf action creator
+export const selectSmurf = (id) => {
+  return {
+    type: SELECT_SMURF,
+    payload: id
+  }
+}
+
 /*
   For this project you'll need at least 2 action creators for the main portion,
    and 2 more for the stretch problem.
