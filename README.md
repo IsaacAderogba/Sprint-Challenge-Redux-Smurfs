@@ -22,9 +22,17 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+- [X] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+- actions can be broken down into action types and action creators. Action types inform us of what type of action has been taken, while action creators send the actual action to the reducers. In this instance, reducers handle all of the state of the app, and will only manipulate the state based either on its own inner logic when it receives in action, or on the payload as specified by the action creator. The redux store is the aggregator of all the state as specified in the reducers.
+
+- [X] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+- Application state can be thought of as the global state which all components can access, while component state is state that is local to the component. If I had a submit form component, I may choose to use component state to keep track of the form input values, while I may use application state to keep track of the submitted form entry.
+
+- [X] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+- Redux Thunk essentially allows us to return a function from the action creators instead of an action object. This allows us to make use of asynchronous operations.
 
 ## Project Set Up
 
