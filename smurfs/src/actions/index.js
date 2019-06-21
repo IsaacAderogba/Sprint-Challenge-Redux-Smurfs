@@ -6,7 +6,7 @@ import axios from "axios";
 
 export const IS_FETCHING = "IS_FETCHING";
 export const FAILED_FETCH = "FAILED_FETCH";
-export const END_FETCH = "SUCCESS_FETCH";
+export const END_FETCH = "END_FETCH";
 export const GET_SMURFS = "GET_SMURFS";
 export const POST_SMURF = "POST_SMURF";
 export const PUT_SMURF = "PUT_SMURF";
@@ -30,6 +30,19 @@ export const getSmurfs = () => dispatch => {
       dispatch({ type: END_FETCH });
     });
 };
+
+// Post Smurf action creator
+export const postSmurf = (name, age, height) => dispatch => {
+  const newSmurf = {name, age: parseInt(age), height };
+  console.log(newSmurf)
+  axios.post(endpoint, newSmurf)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
 
 /*
   For this project you'll need at least 2 action creators for the main portion,

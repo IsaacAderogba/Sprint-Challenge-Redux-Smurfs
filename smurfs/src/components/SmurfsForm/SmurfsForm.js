@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { postSmurf } from "../../actions/index"
+
 
 const SmurfsForm = () => {
   let nameRef = React.createRef();
