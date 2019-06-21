@@ -33,11 +33,10 @@ export const getSmurfs = () => dispatch => {
 
 // Post Smurf action creator
 export const postSmurf = (name, age, height) => dispatch => {
-  const newSmurf = {name, age: parseInt(age), height };
-  console.log(newSmurf)
+  const newSmurf = {name, age: parseInt(age, 10), height };
   axios.post(endpoint, newSmurf)
     .then(res => {
-      console.log(res);
+      dispatch({ type: POST_SMURF, payload: res.data })
     })
     .catch(err => {
       console.log(err);

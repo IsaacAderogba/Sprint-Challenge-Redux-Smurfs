@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { postSmurf } from "../../actions/index"
 
 
-const SmurfsForm = () => {
+const SmurfsForm = (props) => {
+  const {postSmurf} = props;
   let nameRef = React.createRef();
   let ageRef = React.createRef();
   let heightRef = React.createRef();
@@ -12,28 +13,28 @@ const SmurfsForm = () => {
     event.preventDefault();
     const name = nameRef.current.value;
     const age = ageRef.current.value;
-    const height = heightRef.current.value + "cm";
-    // call postSmurf
+    const height = heightRef.current.value;
+    postSmurf(name, age, height);
   };
 
   return (
-    <form>
+    <form onSubmit={onSubmitForm}>
       <h3>Add Smurf</h3>
       <div>
         <label>Name</label>
-        <input type="text" ref={nameRef} />
+        <input required type="text" ref={nameRef} />
       </div>
       <div>
         <label>Age</label>
-        <input type="text" ref={ageRef} />
+        <input required type="text" ref={ageRef} />
       </div>
       <div>
         <label>Height</label>
-        <input type="text" ref={heightRef} />
+        <input required type="text" ref={heightRef} />
       </div>
       <button>Add Smurf</button>
     </form>
   );
 };
 
-export default SmurfsForm;
+export default connect(null, {postSmurf})(SmurfsForm);
