@@ -1,5 +1,7 @@
 import React from "react";
 import Smurf from "./Smurf";
+import { getSmurfs } from '../../actions/index';
+import { connect } from 'react-redux';
 
 const SmurfsList = () => {
   return (
@@ -12,4 +14,11 @@ const SmurfsList = () => {
   );
 };
 
-export default SmurfsList;
+function mapStateToProps(state) {
+    console.log(state);
+    return {
+        smurfs: state.smurfsReducer.smurfs
+    }
+}
+
+export default connect(mapStateToProps, { getSmurfs })(SmurfsList);

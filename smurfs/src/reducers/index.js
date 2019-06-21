@@ -7,8 +7,8 @@ import { fetchReducer } from './fetchReducer';
 import { smurfsReducer } from './smurfsReducer';
 
 const rootReducer = combineReducers({
-  fetch: fetchReducer,
-  smurfs: smurfsReducer
+  fetchReducer: fetchReducer,
+  smurfsReducer: smurfsReducer
 });
 
 export default rootReducer;
