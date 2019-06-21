@@ -5,11 +5,11 @@
 
 export const IS_FETCHING = "IS_FETCHING";
 export const FAILED_FETCH = "FAILED_FETCH";
+export const SUCCESS_FETCH = "SUCCESS_FETCH";
 export const GET_SMURFS =  "GET_SMURFS";
 export const POST_SMURF = "POST_SMURF";
 export const PUT_SMURF = "PUT_SMURF";
 export const DELETE_SMURF = "DELETE_SMURF";
-
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
