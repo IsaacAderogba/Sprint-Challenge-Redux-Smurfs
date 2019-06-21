@@ -4,7 +4,7 @@ import { postSmurf } from "../../actions/index"
 
 
 const SmurfsForm = (props) => {
-  const {postSmurf} = props;
+  const {postSmurf, selectedSmurf} = props;
   let nameRef = React.createRef();
   let ageRef = React.createRef();
   let heightRef = React.createRef();
@@ -19,7 +19,7 @@ const SmurfsForm = (props) => {
 
   return (
     <form onSubmit={onSubmitForm}>
-      <h3>Add Smurf</h3>
+      <h3>{selectedSmurf ? "Update Smurf" : 'Add Smurf'}</h3>
       <div>
         <label>Name</label>
         <input required type="text" ref={nameRef} />
@@ -32,9 +32,13 @@ const SmurfsForm = (props) => {
         <label>Height</label>
         <input required type="text" ref={heightRef} />
       </div>
-      <button>Add Smurf</button>
+      <button>{selectedSmurf ? "Update Smurf" : 'Add Smurf'}</button>
     </form>
   );
 };
 
-export default connect(null, {postSmurf})(SmurfsForm);
+function mapStateToProps(state) {
+    return { selectedSmurf: state.smurfsReducer.selectedSmurf }
+}
+
+export default connect(mapStateToProps, {postSmurf})(SmurfsForm);
