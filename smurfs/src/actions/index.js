@@ -43,9 +43,21 @@ export const postSmurf = (name, age, height) => dispatch => {
     })
 }
 
+// Put Smurf action creator
+export const putSmurf = (id, name, age, height) => dispatch => {
+  const updatedSmurf = {name, age: parseInt(age, 10), height };
+  axios.PUT(`${endpoint}/${id}`, updatedSmurf)
+    .then(res => {
+
+    })
+    .catch(res => {
+      
+    })
+}
+
 // Select Smurf action creator
 export const selectSmurf = (id) => {
-  
+
   return {
     type: SELECT_SMURF,
     payload: `${id}`
