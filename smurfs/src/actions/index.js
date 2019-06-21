@@ -1,3 +1,4 @@
+import axios from 'axios';
 /* 
   Action Types Go Here!
   Be sure to export each action type so you can pull it into your reducer
@@ -11,6 +12,24 @@ export const POST_SMURF = "POST_SMURF";
 export const PUT_SMURF = "PUT_SMURF";
 export const DELETE_SMURF = "DELETE_SMURF";
 export const SELECT_SMURF = "SELECT_SMURF";
+
+const endpoint ="http://localhost:3333/smurfs";
+
+// Get Smurfs action creators
+export const getSmurfs = () => dispatch => {
+  axios.get(endpoint)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+    .finallly(() => {
+      // cleanup
+    })
+}
+
+
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
