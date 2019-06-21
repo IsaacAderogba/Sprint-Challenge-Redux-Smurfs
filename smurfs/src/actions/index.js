@@ -33,36 +33,37 @@ export const getSmurfs = () => dispatch => {
 
 // Post Smurf action creator
 export const postSmurf = (name, age, height) => dispatch => {
-  const newSmurf = {name, age: parseInt(age, 10), height };
-  axios.post(endpoint, newSmurf)
+  const newSmurf = { name, age: parseInt(age, 10), height };
+  axios
+    .post(endpoint, newSmurf)
     .then(res => {
-      dispatch({ type: POST_SMURF, payload: res.data })
+      dispatch({ type: POST_SMURF, payload: res.data });
     })
     .catch(err => {
       console.log(err);
-    })
-}
+    });
+};
 
 // Put Smurf action creator
 export const putSmurf = (id, name, age, height) => dispatch => {
-  const updatedSmurf = {name, age: parseInt(age, 10), height };
-  axios.PUT(`${endpoint}/${id}`, updatedSmurf)
+  const updatedSmurf = { name, age: parseInt(age, 10), height };
+  axios
+    .put(`${endpoint}/${id}`, updatedSmurf)
     .then(res => {
-
+      dispatch({ type: PUT_SMURF, payload: res.data });
     })
-    .catch(res => {
-      
-    })
-}
+    .catch(err => {
+      console.log(err);
+    });
+};
 
 // Select Smurf action creator
-export const selectSmurf = (id) => {
-
+export const selectSmurf = id => {
   return {
     type: SELECT_SMURF,
     payload: `${id}`
-  }
-}
+  };
+};
 
 /*
   For this project you'll need at least 2 action creators for the main portion,

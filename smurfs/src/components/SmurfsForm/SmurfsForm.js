@@ -1,28 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
-import { postSmurf } from "../../actions/index";
+import { postSmurf, putSmurf } from "../../actions/index";
 
 const SmurfsForm = props => {
-  const { postSmurf, selectedSmurf, smurfs } = props;
+  const { postSmurf, putSmurf, selectedSmurf, smurfs } = props;
   let nameRef = React.createRef();
   let ageRef = React.createRef();
   let heightRef = React.createRef();
 
   const onSubmitForm = event => {
     event.preventDefault();
+    const name = nameRef.current.value;
+    const age = ageRef.current.value;
+    const height = heightRef.current.value;
+
     if (selectedSmurf) {
-        console.log('post em')
+      putSmurf(foundSmurf.id, name, age, height )
     } else {
-      const name = nameRef.current.value;
-      const age = ageRef.current.value;
-      const height = heightRef.current.value;
       postSmurf(name, age, height);
     }
   };
 
   let foundSmurf;
   if (selectedSmurf) {
-    foundSmurf = smurfs.find(smurf => smurf.id == selectedSmurf);
+    foundSmurf = smurfs.find(smurf => smurf.id === parseInt(selectedSmurf, 10));
   }
 
   return (
@@ -69,5 +70,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { postSmurf }
+  { postSmurf, putSmurf }
 )(SmurfsForm);
