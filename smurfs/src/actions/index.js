@@ -57,6 +57,18 @@ export const putSmurf = (id, name, age, height) => dispatch => {
     });
 };
 
+// Delete Smurf action creator
+export const deleteSmurf = id => dispatch => {
+  axios
+    .delete(`${endpoint}/${id}`)
+    .then(res => {
+      dispatch({ type: DELETE_SMURF, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
 // Select Smurf action creator
 export const selectSmurf = id => {
   return {
