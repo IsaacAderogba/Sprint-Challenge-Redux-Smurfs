@@ -10,8 +10,8 @@ export const fetchReducer = (state = initialState, action) => {
         case types.IS_FETCHING:
             return {...state, isFetching: true}
         case types.FAILED_FETCH:
-            return {...state, isFetching: false, errorMessage: action.payload }
-        case types.SUCCESS_FETCH:
+            return {...state, errorMessage: action.payload }
+        case types.END_FETCH:
             return {...state, isFetching: false}
         default:
             return state;
