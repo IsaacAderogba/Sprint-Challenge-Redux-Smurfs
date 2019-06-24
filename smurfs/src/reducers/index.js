@@ -2,6 +2,17 @@
   Be sure to import in all of the action types from `../actions`
 */
 
+import { combineReducers } from 'redux';
+import { fetchReducer } from './fetchReducer';
+import { smurfsReducer } from './smurfsReducer';
+
+const rootReducer = combineReducers({
+  fetchReducer: fetchReducer,
+  smurfsReducer: smurfsReducer
+});
+
+export default rootReducer;
+
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
  {
